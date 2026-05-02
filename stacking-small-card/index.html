@@ -17,26 +17,28 @@
       href="https://unpkg.com/lenis@1.3.23/dist/lenis.css"
     />
   </head>
-  <body>
-    <div class="max-w-5xl mx-auto py-2">
-      <h1 class="text-center">GSAP & Lenis Experiments</h1>
-    </div>
-    <div
-      class="sticky-cards relative overflow-hidden bg-gray-100 w-screen h-screen"
+  <body class="overflow-x-hidden">
+    <section
+      class="w-full h-[50vh] flex justify-center items-center x-auto py-2 bg-gray-900 text-white"
+    >
+      <h1 class="text-center text-5xl">Scroll Down to see the magic!</h1>
+    </section>
+    <section
+      class="sticky-cards relative overflow-hidden bg-[#fff8f1] w-screen h-screen"
     >
       <!-- Card 1 -->
       <div
         class="card absolute w-80 bg-white p-4 pb-8 shadow-xl rounded-sm border border-gray-200"
       >
         <img
-          src="https://images.unsplash.com/photo-1506744626753-eda8151a7474?w=600&h=600&fit=crop"
+          src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?w=600&h=600&fit=crop"
           alt="Mountain Landscape"
           class="w-full aspect-square object-cover mb-4 bg-gray-100"
         />
         <p
           class="text-center text-xl font-semibold text-gray-800 font-['Space_Grotesk']"
         >
-          Wanderlust
+          Mountain
         </p>
       </div>
 
@@ -52,7 +54,7 @@
         <p
           class="text-center text-xl font-semibold text-gray-800 font-['Space_Grotesk']"
         >
-          Deep Blue
+          Streets
         </p>
       </div>
 
@@ -77,7 +79,7 @@
         class="card absolute w-80 bg-white p-4 pb-8 shadow-xl rounded-sm border border-gray-200"
       >
         <img
-          src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d4?w=600&h=600&fit=crop"
+          src="https://images.unsplash.com/photo-1472190649224-495422e1b602?w=600&h=600&fit=crop"
           alt="Landscape"
           class="w-full aspect-square object-cover mb-4 bg-gray-100"
         />
@@ -103,7 +105,13 @@
           Night Sky
         </p>
       </div>
-    </div>
+    </section>
+    <section
+      class="w-full h-[50vh] flex justify-center items-center x-auto py-2 bg-gray-900 text-white"
+    >
+      <h1 class="text-center text-5xl">Self Stacking Small Card!</h1>
+    </section>
+
     <script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
 
