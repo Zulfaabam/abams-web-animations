@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stacking Big Card</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/lenis@1.3.23/dist/lenis.css"
+    />
+    <style>
+      body {
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      .gsap-marker-start,
+      .gsap-marker-end,
+      .gsap-marker-scroller-start,
+      .gsap-marker-scroller-end {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .card {
+        position: absolute;
+        inset: 0;
+        width: 100vw;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        box-shadow:
+          0 20px 25px -5px rgb(0 0 0 / 0.1),
+          0 8px 10px -6px rgb(0 0 0 / 0.1);
+        border-radius: 0.125rem;
+        border: 1px solid #e5e7eb;
+        overflow: hidden;
+
+        @media (min-width: 768px) {
+          flex-direction: row;
+        }
+      }
+
+      .wrapper {
+        height: 100vh;
+      }
+
+      .list {
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      .card-content {
+        width: 100%;
+        height: 50%;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      @media (min-width: 768px) {
+        .card-content {
+          width: 50%;
+          padding: 4rem;
+          height: 100%;
+        }
+      }
+
+      .card-image {
+        width: 100%;
+      }
+
+      @media (min-width: 768px) {
+        .card-image {
+          width: 50%;
+        }
+      }
+
+      .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background-color: #f3f4f6;
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden bg-[#fff8f1]">
+    <div
+      class="h-[25vh] text-center font-space-grotesk flex flex-col justify-center"
+    >
+      <h1 class="text-5xl">Vertical Card Stack Scrolling!</h1>
+    </div>
+
+    <div class="scroll-section vertical-scrolling overflow-hidden">
+      <div class="wrapper">
+        <div class="list">
+          <!-- Card 1 -->
+          <div class="card">
+            <div class="card-content">
+              <h2
+                class="text-4xl md:text-5xl font-semibold text-gray-800 font-['Space_Grotesk'] mb-4"
+              >
+                Mountain
+              </h2>
+              <p class="text-lg text-gray-600">
+                Explore the majestic peaks and breathtaking views of mountain
+                landscapes.
+              </p>
+            </div>
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?w=800&h=800&fit=crop"
+                alt="Mountain Landscape"
+              />
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card">
+            <div class="card-content">
+              <h2
+                class="text-4xl md:text-5xl font-semibold text-gray-800 font-['Space_Grotesk'] mb-4"
+              >
+                Streets
+              </h2>
+              <p class="text-lg text-gray-600">
+                Wander through the bustling city streets and discover the urban
+                charm.
+              </p>
+            </div>
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1511576661531-b34d7da5d0bb?w=800&h=800&fit=crop"
+                alt="Ocean View"
+              />
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card">
+            <div class="card-content">
+              <h2
+                class="text-4xl md:text-5xl font-semibold text-gray-800 font-['Space_Grotesk'] mb-4"
+              >
+                Serenity
+              </h2>
+              <p class="text-lg text-gray-600">
+                Find peace and tranquility in the serene beauty of nature.
+              </p>
+            </div>
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800&h=800&fit=crop"
+                alt="Nature"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="h-[25vh] text-center font-space-grotesk bg-[#e1d9cd] flex flex-col justify-center"
+    >
+      <h2 class="text-5xl">Horizontal Card Stack Scrolling!</h2>
+    </div>
+
+    <div class="scroll-section horizontal-scrolling overflow-hidden">
+      <div class="wrapper">
+        <div class="list">
+          <!-- Card 4 -->
+          <div class="card">
+            <div class="card-content">
+              <h2
+                class="text-4xl md:text-5xl font-semibold text-gray-800 font-['Space_Grotesk'] mb-4"
+              >
+                Horizons
+              </h2>
+              <p class="text-lg text-gray-600">
+                Look out into the distance and admire the endless horizons.
+              </p>
+            </div>
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1472190649224-495422e1b602?w=800&h=800&fit=crop"
+                alt="Landscape"
+              />
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="card">
+            <div class="card-content">
+              <h2
+                class="text-4xl md:text-5xl font-semibold text-gray-800 font-['Space_Grotesk'] mb-4"
+              >
+                Night Sky
+              </h2>
+              <p class="text-lg text-gray-600">
+                Gaze at the starry night sky and marvel at the vastness of the
+                universe.
+              </p>
+            </div>
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=800&fit=crop"
+                alt="Starry Night"
+              />
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="card">
+            <div class="card-content">
+              <h2
+                class="text-4xl md:text-5xl font-semibold text-gray-800 font-['Space_Grotesk'] mb-4"
+              >
+                Canyon
+              </h2>
+              <p class="text-lg text-gray-600">
+                Explore the dramatic beauty of the canyon and its unique
+                geological formations.
+              </p>
+            </div>
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1765871321366-c2b86bd243b0?w=800&h=800&fit=crop"
+                alt="Starry Night"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section
+      class="w-full h-[50vh] flex justify-center items-center x-auto py-2 bg-gray-900 text-white"
+    >
+      <h1 class="text-center text-5xl">On Scroll Card-Stacking!</h1>
+    </section>
+
+    <script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger)
+
+      const scrollSection = document.querySelectorAll('.scroll-section')
+
+      scrollSection.forEach((section) => {
+        const wrapper = section.querySelector('.wrapper')
+        const cards = wrapper.querySelectorAll('.card')
+
+        let direction = null
+
+        if (section.classList.contains('vertical-scrolling')) {
+          direction = 'vertical'
+        } else if (section.classList.contains('horizontal-scrolling')) {
+          direction = 'horizontal'
+        }
+
+        initScroll(section, cards, direction)
+      })
+
+      function initScroll(section, cards, direction) {
+        // Initial states
+        cards.forEach((card, index) => {
+          if (index !== 0) {
+            direction == 'horizontal'
+              ? gsap.set(card, { xPercent: 100 })
+              : gsap.set(card, { yPercent: 100 })
+          }
+        })
+
+        const timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            pin: true,
+            start: 'top top',
+            end: () => `+=${cards.length * 100}%`,
+            scrub: 1,
+            invalidateOnRefresh: true,
+            // markers: true,
+          },
+          defaults: { ease: 'none' },
+        })
+
+        cards.forEach((card, index) => {
+          timeline.to(card, {
+            scale: 0.9,
+            borderRadius: '10px',
+          })
+
+          direction == 'horizontal'
+            ? timeline.to(
+                cards[index + 1],
+                {
+                  xPercent: 0,
+                },
+                '<',
+              )
+            : timeline.to(
+                cards[index + 1],
+                {
+                  yPercent: 0,
+                },
+                '<',
+              )
+        })
+      }
+    </script>
+  </body>
+</html>

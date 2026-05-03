@@ -1,19 +1,30 @@
-function ProductCard({
-  product,
-}: {
-  product: { name: string; description: string; imageUrl: string; type: string }
-}) {
+import type { Products } from '../types'
+
+function ProductCard({ product }: { product: Products }) {
   return (
     <a
-      href='/stacking-small-card/index.html'
+      href={product.url}
+      target='_blank'
+      rel='noopener noreferrer'
       className='group block overflow-hidden shadow-[0_24px_80px_rgba(3,22,50,0.16)] transition-transform duration-500 hover:-translate-y-2'
     >
-      <div className='relative overflow-hidden bg-[#865041] bg-center aspect-square flex items-center justify-center'>
-        <img
-          src={product.imageUrl}
-          alt={`${product.name}`}
-          className='w-[90%] aspect-video transition-transform duration-700 group-hover:scale-105'
-        />
+      <div className='relative overflow-hidden bg-black bg-center aspect-video flex items-center justify-center'>
+        {product.videoUrl ? (
+          <video
+            src={product.videoUrl}
+            className='w-[90%] aspect-video object-cover transition-transform duration-700 group-hover:scale-105'
+            autoPlay
+            loop
+            muted
+          />
+        ) : null}
+        {product.imageUrl ? (
+          <img
+            src={product.imageUrl}
+            alt={`${product.name}`}
+            className='w-[90%] aspect-video transition-transform duration-700 group-hover:scale-105'
+          />
+        ) : null}
       </div>
 
       <div className='bg-white p-4'>
