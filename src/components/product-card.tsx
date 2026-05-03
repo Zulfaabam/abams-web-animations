@@ -1,12 +1,20 @@
+import { useBottomSheet } from '../contexts/bottom-sheet/use-bottom-sheet'
 import type { Products } from '../types'
 
-function ProductCard({ product }: { product: Products }) {
+interface ProductCardProps {
+  product: Products
+}
+
+function ProductCard({ product }: ProductCardProps) {
+  const { openBottomSheet } = useBottomSheet()
+
   return (
-    <a
-      href={product.url}
-      target='_blank'
-      rel='noopener noreferrer'
-      className='group block overflow-hidden shadow-[0_24px_80px_rgba(3,22,50,0.16)] transition-transform duration-500 hover:-translate-y-2'
+    <div
+      onClick={(e) => {
+        e.preventDefault()
+        openBottomSheet(product)
+      }}
+      className='group block overflow-hidden shadow-[0_24px_80px_rgba(3,22,50,0.16)] transition-transform duration-500 hover:-translate-y-2 cursor-pointer'
     >
       <div className='relative overflow-hidden bg-black bg-center aspect-video flex items-center justify-center'>
         {product.videoUrl ? (
@@ -38,7 +46,7 @@ function ProductCard({ product }: { product: Products }) {
           {product.description}
         </p>
       </div>
-    </a>
+    </div>
   )
 }
 
